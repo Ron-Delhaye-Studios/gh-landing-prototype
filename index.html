@@ -75,21 +75,28 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
 .spotlight h2{font-family:var(--serif);font-weight:600;font-size:2rem;margin:0}
 .slider{position:relative;max-width:46rem;margin:0 auto;overflow:hidden;background:#000}
 .slides{position:relative;aspect-ratio:4/5;max-height:78svh}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s cubic-bezier(0.22,1,0.36,1);pointer-events:none;will-change:opacity}
 .slide.active{opacity:1;pointer-events:auto}
-.slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02)}
-.slide.active img{animation:kenburns 6.5s ease-out forwards}
-@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+.slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);will-change:transform}
+.slide.active img{animation:kenburns 7s cubic-bezier(0.22,1,0.36,1) forwards}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
 .slide .shade{position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(4,10,20,.28) 0%,rgba(4,10,20,0) 36%,rgba(4,10,20,.16) 62%,rgba(4,10,20,.86) 100%)}
-.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1.4rem 1.7rem}
-.slide .when{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin:0 0 .45rem}
-.slide h3{font-family:var(--serif);font-weight:600;font-size:1.9rem;line-height:1.12;margin:0 0 .4rem;text-wrap:balance}
-.slide .where{font-size:.92rem;color:rgba(255,255,255,.85);margin:0 0 1rem}
+  background:linear-gradient(180deg,rgba(16,61,96,.34) 0%,rgba(16,61,96,0) 32%,rgba(16,61,96,0) 46%,rgba(16,61,96,.76) 100%)}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.7rem 1.4rem 2rem}
+.slide .when{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin:0 0 .45rem;
+  text-shadow:0 1px 8px rgba(4,10,20,.65)}
+.slide h3{font-family:var(--serif);font-weight:600;font-size:1.9rem;line-height:1.12;margin:0 0 .4rem;text-wrap:balance;
+  text-shadow:0 1px 14px rgba(4,10,20,.6),0 1px 3px rgba(4,10,20,.65)}
+.slide h3 a{color:inherit;text-decoration:none}
+.slide .where{font-size:.92rem;color:rgba(255,255,255,.92);margin:0 0 1rem;
+  text-shadow:0 1px 8px rgba(4,10,20,.65)}
 .slide .details{display:inline-block;min-height:44px;line-height:44px;padding:0 1.5rem;
   border:1px solid var(--gold-soft);color:#fff;text-decoration:none;
   font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
 .slide .details:active{background:var(--gold-soft);color:var(--navy-deep)}
+.slide .official{display:inline-block;min-height:44px;line-height:44px;padding:0 .2rem;margin-left:1rem;
+  color:rgba(255,255,255,.85);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:underline;text-decoration-color:var(--gold-soft);text-underline-offset:4px}
 .slider-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;
   width:44px;height:44px;border:1px solid rgba(255,255,255,.5);background:rgba(4,10,20,.35);
   color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
@@ -135,7 +142,7 @@ h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8r
 .colophon .foot-links a{color:var(--ink);text-decoration-color:var(--navy);text-underline-offset:2px}
 
 /* scroll reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(0.22,1,0.36,1),transform .9s cubic-bezier(0.22,1,0.36,1)}
 .reveal.in{opacity:1;transform:none}
 
 @media (prefers-reduced-motion:reduce){
@@ -175,9 +182,9 @@ h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8r
         <div class="shade"></div>
         <figcaption>
           <p class="when">Sunday, September 27 · 7:00–9:00 AM</p>
-          <h3>Snowmass Balloon Festival — Final Launch</h3>
+          <h3><a href="../upcoming/#ev-53b3582f-d664-4235-9efb-67aa335afabe">Snowmass Balloon Festival — Final Launch</a></h3>
           <p class="where">Snowmass Town Park · Free · All ages</p>
-          <a class="details" href="https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/" target="_blank" rel="noopener">Details</a>
+          <a class="details" href="../upcoming/#ev-53b3582f-d664-4235-9efb-67aa335afabe">Details</a><a class="official" href="https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/" target="_blank" rel="noopener">Official site</a>
         </figcaption>
       </figure>
 
@@ -186,9 +193,9 @@ h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8r
         <div class="shade"></div>
         <figcaption>
           <p class="when">Saturday, September 26 · 12:00–8:00 PM</p>
-          <h3>Snowmass Oktoberfest</h3>
+          <h3><a href="../map/?event=d8d2c7e3-73ce-4346-8430-7ae4204a39b1">Snowmass Oktoberfest</a></h3>
           <p class="where">Snowmass Base Village Events Lawn · Free entry</p>
-          <a class="details" href="https://www.gosnowmass.com/event/snowmass-oktoberfest/2026-09-26/" target="_blank" rel="noopener">Details</a>
+          <a class="details" href="../map/?event=d8d2c7e3-73ce-4346-8430-7ae4204a39b1">Details</a><a class="official" href="https://www.gosnowmass.com/event/snowmass-oktoberfest/2026-09-26/" target="_blank" rel="noopener">Official site</a>
         </figcaption>
       </figure>
 
@@ -197,9 +204,9 @@ h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8r
         <div class="shade"></div>
         <figcaption>
           <p class="when">Monday, September 28 · 8:00 AM</p>
-          <h3>Maroon Bells at Peak Color</h3>
+          <h3><a href="../upcoming/#ev-44ae4ec0-9bfd-4116-bde9-93b55011975f">Maroon Bells at Peak Color</a></h3>
           <p class="where">Maroon Bells Scenic Area · Shuttle $16/adult</p>
-          <a class="details" href="https://www.visitmaroonbells.com/" target="_blank" rel="noopener">Details</a>
+          <a class="details" href="../upcoming/#ev-44ae4ec0-9bfd-4116-bde9-93b55011975f">Details</a><a class="official" href="https://www.visitmaroonbells.com/" target="_blank" rel="noopener">Official site</a>
         </figcaption>
       </figure>
 
@@ -208,9 +215,9 @@ h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8r
         <div class="shade"></div>
         <figcaption>
           <p class="when">Tuesday, September 29 · 4:00 PM</p>
-          <h3>Aspen Filmfest — Opening Day (47th)</h3>
+          <h3><a href="../upcoming/#ev-f55e4036-c375-464f-b960-1c84b87d2e07">Aspen Filmfest — Opening Day (47th)</a></h3>
           <p class="where">Isis Theatre, Aspen · Screenings all week</p>
-          <a class="details" href="https://aspenfilm.org/festival/2026-filmfest/" target="_blank" rel="noopener">Details</a>
+          <a class="details" href="../upcoming/#ev-f55e4036-c375-464f-b960-1c84b87d2e07">Details</a><a class="official" href="https://aspenfilm.org/festival/2026-filmfest/" target="_blank" rel="noopener">Official site</a>
         </figcaption>
       </figure>
 
@@ -219,9 +226,9 @@ h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8r
         <div class="shade"></div>
         <figcaption>
           <p class="when">Tuesday, September 29 · 8:00 PM</p>
-          <h3>Michigander at Belly Up</h3>
+          <h3><a href="../upcoming/#ev-51585a69-0951-4dc9-9497-1dc4c69e4a45">Michigander at Belly Up</a></h3>
           <p class="where">Belly Up Aspen · $45.60 GA · All ages</p>
-          <a class="details" href="https://tickets.bellyupaspen.com/link/event?event=michigander-9-29-26" target="_blank" rel="noopener">Details</a>
+          <a class="details" href="../upcoming/#ev-51585a69-0951-4dc9-9497-1dc4c69e4a45">Details</a><a class="official" href="https://tickets.bellyupaspen.com/link/event?event=michigander-9-29-26" target="_blank" rel="noopener">Official site</a>
         </figcaption>
       </figure>
 
