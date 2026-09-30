@@ -37,6 +37,20 @@
     transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite}
   @keyframes bob{50%{transform:rotate(45deg) translate(1vmin,1vmin)}}
 
+  /* ---- living opening: starfield + teaser photos ---- */
+  #stars,#stars2{position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;
+    pointer-events:none;animation:tw 5s ease-in-out infinite}
+  #stars2{width:3px;height:3px;animation-duration:7s}
+  @keyframes tw{50%{opacity:.5}}
+  #teaser{position:absolute;inset:0;pointer-events:none}
+  .tcard{position:absolute;will-change:transform}
+  .tcard .in{border-radius:1.6vmin;overflow:hidden;animation:float 7s ease-in-out infinite;
+    box-shadow:0 2vmin 5vmin rgba(0,0,0,.55),0 0 0 1px rgba(247,241,227,.16)}
+  .tcard:nth-child(2) .in{animation-delay:-2.4s}
+  .tcard:nth-child(3) .in{animation-delay:-4.8s}
+  .tcard img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+  @keyframes float{50%{transform:translateY(-2.6vmin)}}
+
   /* ---- settled hero (fades in with scroll) ---- */
   #hero{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
     justify-content:center;text-align:center;padding:0 8vw;opacity:0;pointer-events:none}
@@ -82,6 +96,8 @@
 
 <div id="runway">
   <div id="frame">
+    <div id="stars"></div><div id="stars2"></div>
+    <div id="teaser"></div>
     <div id="flash"></div>
     <div id="cue">SCROLL</div>
     <section id="hero" aria-label="The Golden Hour">
@@ -111,7 +127,36 @@ const hero = document.getElementById('hero');
 const strip = document.getElementById('strip');
 const flash = document.getElementById('flash');
 const cue = document.getElementById('cue');
+const stars = document.getElementById('stars');
+const stars2 = document.getElementById('stars2');
+const teaser = document.getElementById('teaser');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- living opening: starfield + teaser photos ---------- */
+function starfield(el, n, maxO){
+  const arr = [];
+  for (let i = 0; i < n; i++){
+    arr.push((Math.random()*120-10).toFixed(1) + 'vw ' + (Math.random()*120-10).toFixed(1) +
+      'vh 0 0 rgba(247,241,227,' + (Math.random()*maxO).toFixed(2) + ')');
+  }
+  el.style.boxShadow = arr.join(',');
+}
+starfield(stars, 90, .7);
+starfield(stars2, 36, .95);
+[{ l:'7%', t:'15%', w:'34vmin', r:'-7deg' },
+ { l:'60%', t:'36%', w:'30vmin', r:'6deg' },
+ { l:'12%', t:'62%', w:'27vmin', r:'-4deg' }].forEach((s, i) => {
+  const p = picks[i];
+  const d = document.createElement('div');
+  d.className = 'tcard';
+  d.style.cssText = 'left:' + s.l + ';top:' + s.t + ';width:' + s.w + ';transform:rotate(' + s.r + ')';
+  const inner = document.createElement('div');
+  inner.className = 'in';
+  const img = document.createElement('img');
+  img.src = p.src; img.alt = p.title;
+  img.onerror = () => d.style.display = 'none';
+  inner.appendChild(img); d.appendChild(inner); teaser.appendChild(d);
+});
 
 /* ---------- helpers ---------- */
 const clamp01 = v => Math.min(1, Math.max(0, v));
@@ -203,6 +248,11 @@ function draw(){
   strip.style.opacity = risen * .92;
   /* scroll cue only at the very top */
   cue.style.opacity = 1 - smooth(.015, .09, p);
+  /* opening: teaser dissolves as the scroll takes over; stars drift */
+  teaser.style.opacity = 1 - smooth(0, .06, p);
+  const drift = p * -10;
+  stars.style.transform = 'translateY(' + drift + 'vh)';
+  stars2.style.transform = 'translateY(' + (drift * 1.6) + 'vh)';
   /* parallax: settled hero drifts slightly as you keep scrolling south */
   if (p > .84) hero.style.transform = `translateY(${(p - .84) * -30}vh)`;
 }
