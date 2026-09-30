@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Golden Hour — 3 Homepage Directions</title>
+<meta name="description" content="Three visual directions for the new Golden Hour homepage. Scroll, compare, pick one.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:#1d1a16}
+  .serif{font-family:"Cormorant Garamond",Didot,Georgia,serif}
+  .dir{min-height:100vh;min-height:100svh;position:relative;display:flex;
+    flex-direction:column;justify-content:center;overflow:hidden}
+  .chip{position:absolute;top:max(1rem,env(safe-area-inset-top));left:1rem;z-index:5;
+    font-size:.68rem;letter-spacing:.2em;font-weight:600;
+    padding:.5rem .9rem;border-radius:999px}
+  .intro{background:#0d2137;color:#f6f1e6;text-align:center;padding:6vh 8vw;min-height:auto}
+  .intro h1{font-size:clamp(1.6rem,6vw,2.6rem);font-weight:600;margin-bottom:1rem}
+  .intro p{color:#c8d3e0;max-width:34rem;margin:0 auto;line-height:1.7;font-size:.95rem}
+  .intro .go{display:inline-block;margin-top:1.4rem;color:#d9a94a;text-decoration:none;
+    border:1px solid #d9a94a;padding:.7rem 1.6rem;letter-spacing:.15em;font-size:.8rem}
+
+  /* ============ DIRECTION 1 — GOLDEN HOUR (cinematic photo hero) ============ */
+  #d1{background:#0d2137 url('https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/maroon-bells-fall-colors.jpg') center/cover no-repeat}
+  #d1::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(13,33,55,.25) 0%,rgba(13,33,55,.05) 40%,rgba(13,33,55,.82) 100%)}
+  #d1 .chip{background:rgba(13,33,55,.7);color:#d9a94a;border:1px solid rgba(217,169,74,.5)}
+  #d1 .inner{position:relative;z-index:2;text-align:center;padding:0 8vw;margin-top:auto;margin-bottom:12vh}
+  #d1 .kicker{font-size:.72rem;letter-spacing:.4em;text-indent:.4em;color:#e9d9ae;margin-bottom:2.5vh}
+  #d1 h2{font-weight:500;font-size:clamp(3rem,15vw,7rem);line-height:1;color:#fff;
+    text-shadow:0 2px 30px rgba(0,0,0,.45)}
+  #d1 .rule{width:4rem;height:2px;background:#d9a94a;margin:3vh auto}
+  #d1 .tag{font-style:italic;color:rgba(255,255,255,.92);font-size:clamp(1rem,4.5vw,1.3rem);margin-bottom:4vh}
+  #d1 .cta{display:inline-block;color:#fff;text-decoration:none;letter-spacing:.25em;text-indent:.25em;
+    font-size:.85rem;border:1px solid #d9a94a;padding:1rem 2.4rem;background:rgba(217,169,74,.14)}
+
+  /* ============ DIRECTION 2 — THE COVER (editorial) ============ */
+  #d2{background:#fdfcf8}
+  #d2 .chip{background:#103d60;color:#fff}
+  #d2 .inner{padding:12vh 7vw 10vh;max-width:60rem;margin:0 auto;width:100%}
+  #d2 .dateline{font-size:.72rem;letter-spacing:.3em;color:#103d60;margin-bottom:1.2rem;font-weight:600}
+  #d2 h2{font-weight:600;font-size:clamp(2.6rem,11vw,5.5rem);line-height:1.02;margin-bottom:2rem}
+  #d2 h2 em{font-style:italic;font-weight:500}
+  #d2 .collage{display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;align-items:start;margin-bottom:2.2rem}
+  #d2 .collage img{width:100%;display:block;box-shadow:0 1.2rem 3rem rgba(16,61,96,.18)}
+  #d2 .collage .tall{transform:rotate(-1.2deg)}
+  #d2 .collage .small{transform:rotate(1.5deg);margin-top:2.5rem}
+  #d2 .collage figcaption{font-size:.78rem;color:#6e675c;font-style:italic;margin-top:.5rem}
+  #d2 .standfirst{font-size:1.05rem;line-height:1.7;color:#4a443b;max-width:36rem;margin-bottom:2rem}
+  #d2 .cta{display:inline-block;border:1px solid #103d60;color:#103d60;text-decoration:none;
+    letter-spacing:.15em;font-size:.82rem;padding:.85rem 1.8rem;font-weight:600}
+  #d2 .cta:hover{background:#103d60;color:#fff}
+
+  /* ============ DIRECTION 3 — TONIGHT (live pulse) ============ */
+  #d3{background:#0d2137;color:#f6f1e6}
+  #d3 .chip{background:rgba(217,169,74,.15);color:#d9a94a;border:1px solid rgba(217,169,74,.5)}
+  #d3 .inner{padding:12vh 6vw 10vh;max-width:60rem;margin:0 auto;width:100%}
+  #d3 .kicker{font-size:.72rem;letter-spacing:.35em;color:#d9a94a;margin-bottom:1rem;font-weight:600}
+  #d3 h2{font-weight:600;font-size:clamp(2.4rem,10vw,4.8rem);line-height:1.02;margin-bottom:.6rem;color:#fff}
+  #d3 .sub{color:#9fb0c3;font-style:italic;margin-bottom:2.4rem}
+  #d3 .cards{display:grid;gap:1rem}
+  #d3 .card{display:grid;grid-template-columns:96px 1fr auto;gap:1rem;align-items:center;
+    background:rgba(255,255,255,.05);border:1px solid rgba(217,169,74,.25);
+    padding:.8rem;text-decoration:none;color:inherit}
+  #d3 .card img{width:96px;height:96px;object-fit:cover;display:block}
+  #d3 .when{font-size:.68rem;letter-spacing:.2em;color:#d9a94a;font-weight:700;margin-bottom:.3rem}
+  #d3 .what{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.35rem;font-weight:600;
+    color:#fff;line-height:1.2;margin-bottom:.2rem}
+  #d3 .where{font-size:.82rem;color:#9fb0c3}
+  #d3 .arrow{font-size:1.6rem;color:#d9a94a;padding-right:.6rem}
+  #d3 .cta{display:inline-block;margin-top:2.2rem;color:#0d2137;background:#d9a94a;text-decoration:none;
+    letter-spacing:.2em;font-size:.8rem;font-weight:700;padding:1rem 2.2rem}
+  @media(min-width:700px){ #d3 .cards{grid-template-columns:repeat(3,1fr)} #d3 .card{grid-template-columns:1fr} #d3 .card img{width:100%;height:150px} #d3 .arrow{display:none} }
+
+  .outro{background:#0d2137;color:#c8d3e0;text-align:center;padding:8vh 8vw}
+  .outro p{max-width:36rem;margin:0 auto;line-height:1.8}
+  .outro b{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="intro dir">
+  <h1 class="serif">Three directions. One homepage.</h1>
+  <p>The current home page is all text and no heartbeat. Below are three visual directions for its replacement — each one a full first impression. Scroll through, then tell me which one feels like <b style="color:#fff">The Golden Hour</b>.</p>
+  <a class="go" href="#d1">START SCROLLING ↓</a>
+</div>
+
+<!-- DIRECTION 1 -->
+<section class="dir" id="d1">
+  <span class="chip">DIRECTION 1 — GOLDEN HOUR</span>
+  <div class="inner">
+    <p class="kicker">FROM ASPEN AND BEYOND</p>
+    <h2 class="serif">The Golden Hour</h2>
+    <div class="rule"></div>
+    <p class="tag serif">A weekly field guide to what's on — music, art, and high-country happenings.</p>
+    <a class="cta" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/upcoming/">SEE WHAT'S ON</a>
+  </div>
+</section>
+
+<!-- DIRECTION 2 -->
+<section class="dir" id="d2">
+  <span class="chip">DIRECTION 2 — THE COVER</span>
+  <div class="inner">
+    <p class="dateline">SATURDAY, SEPTEMBER 26 – SATURDAY, OCTOBER 3, 2026</p>
+    <h2 class="serif">This week in <em>Aspen.</em></h2>
+    <div class="collage">
+      <figure class="tall">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/hot-air-balloons-snowmass-town-park.jpg" alt="Hot air balloons over Snowmass">
+        <figcaption>Balloon glow over Snowmass Town Park</figcaption>
+      </figure>
+      <figure class="small">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-art-museum.jpg" alt="Aspen Art Museum at dusk">
+        <figcaption>Fall exhibitions at the Art Museum</figcaption>
+      </figure>
+    </div>
+    <p class="standfirst">Eight days of curated picks — arriving Saturday through departure Saturday — each one verified against official sources before it earns a place here.</p>
+    <a class="cta" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/editions/2026-09-26/">READ THE EDITION</a>
+  </div>
+</section>
+
+<!-- DIRECTION 3 -->
+<section class="dir" id="d3">
+  <span class="chip">DIRECTION 3 — TONIGHT</span>
+  <div class="inner">
+    <p class="kicker">● LIVE FROM THE GUIDE</p>
+    <h2 class="serif">Tonight in Aspen</h2>
+    <p class="sub serif">The guide never sleeps — here's what's on right now.</p>
+    <div class="cards">
+      <a class="card" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/michigander-live-concert.jpg" alt="Michigander live">
+        <div><p class="when">TONIGHT · SEP 30</p><p class="what">Michigander</p><p class="where">Belly Up Aspen</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/pink-talking-fish-live-concert.webp" alt="Pink Talking Fish live">
+        <div><p class="when">FRIDAY · OCT 2</p><p class="what">Pink Talking Fish</p><p class="where">Belly Up Aspen</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-saturday-market.jpg" alt="Aspen Saturday Market">
+        <div><p class="when">SATURDAY · OCT 3</p><p class="what">Saturday Market — Finale</p><p class="where">Downtown Aspen</p></div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+    <a class="cta" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/upcoming/">SEE EVERYTHING →</a>
+  </div>
+</section>
+
+<div class="outro">
+  <p>That's all three. <b>Reply with 1, 2, or 3</b> — or mix them ("1's hero with 3's pulse"). The winner gets built properly, with your approval, before anything touches the live site.</p>
+</div>
+
+</body>
+</html>
