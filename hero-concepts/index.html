@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Golden Hour — Homepage Hero Concepts (prototype)</title>
+<meta name="description" content="Three hero banner concepts for The Golden Hour homepage. Prototype only — production is untouched.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:#1d1a16;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;background:#fdfcf8}
+.serif{font-family:"Cormorant Garamond",Didot,Georgia,serif}
+:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;
+  --navy:#0d2137;--gold:#d9a94a;--gold-deep:#b98a1d;--inkbg:#16120d;--cream:#f6f1e6}
+img{display:block;max-width:100%}
+a{text-decoration:none}
+
+/* ===== prototype framing bar ===== */
+.framebar{background:#111;color:#e9e4d8;padding:1rem 1.25rem;text-align:center}
+.framebar .fk{font-size:.68rem;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:.3rem}
+.framebar p{font-size:.9rem;max-width:40rem;margin:0 auto}
+.framebar p b{color:#fff}
+
+/* ===== concept label ===== */
+.concept-label{max-width:64rem;margin:0 auto;padding:2.6rem 1.25rem 1.1rem;display:flex;gap:1rem;align-items:baseline}
+.concept-label .num{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.6rem;font-weight:700;color:var(--gold-deep);line-height:1}
+.concept-label h2{font-size:.95rem;letter-spacing:.28em;font-weight:700}
+.concept-label p{color:var(--muted);font-size:.95rem;margin-top:.15rem}
+.stage{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+
+/* ===== shared masthead ===== */
+.masthead{text-align:center;padding:2.2rem 1rem 0}
+.masthead .mk{font-size:.68rem;letter-spacing:.42em;text-indent:.42em;color:var(--accent);font-weight:600;margin-bottom:.7rem}
+.masthead .wordmark{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(2.6rem,11vw,4.2rem);line-height:1;color:var(--ink)}
+.masthead .dbl{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:5px;max-width:64rem;margin:1.1rem auto 0}
+.masthead nav{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;padding:.85rem .5rem 1.4rem;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.masthead nav a{color:var(--ink);border-bottom:2px solid transparent;padding-bottom:3px}
+.masthead nav a.on{border-color:var(--ink);font-weight:600}
+
+/* ============ CONCEPT 1 · TONIGHT ============ */
+.tonight{background:linear-gradient(160deg,#0a1a2c 0%,var(--navy) 55%,#123354 100%);color:var(--cream)}
+.tonight .mast-mini{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  max-width:64rem;margin:0 auto;padding:1.1rem 1.25rem;border-bottom:1px solid rgba(217,169,74,.3)}
+.tonight .mast-mini .wm{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;font-weight:600;color:#fff;white-space:nowrap}
+.tonight .mast-mini nav{display:flex;gap:1rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+.tonight .mast-mini nav a{color:rgba(246,241,230,.85)}
+.tonight .hero1{max-width:64rem;margin:0 auto;padding:2.4rem 1.25rem 0;display:grid;gap:1.8rem}
+.tonight .art{position:relative}
+.tonight .art::before{content:"";position:absolute;inset:0;transform:translate(10px,10px);
+  border:1px solid var(--gold);z-index:0}
+.tonight .art img{position:relative;z-index:1;width:100%;height:100%;max-height:420px;object-fit:cover;object-position:center 22%}
+.tonight .kick{font-size:.72rem;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:.9rem}
+.tonight h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;color:#fff;
+  font-size:clamp(2.9rem,11vw,4.6rem);line-height:.98;margin-bottom:.7rem}
+.tonight .meta{font-size:.95rem;color:#cfe0f2;letter-spacing:.02em;margin-bottom:.9rem}
+.tonight .meta b{color:#fff}
+.tonight .line{color:#a9bcd2;font-size:1rem;max-width:30rem;margin-bottom:1.6rem}
+.tonight .cta{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;
+  letter-spacing:.18em;font-size:.8rem;padding:1rem 2.1rem;text-transform:uppercase}
+.tonight .then{max-width:64rem;margin:2.4rem auto 0;padding:1.1rem 1.25rem 2.4rem}
+.tonight .then-inner{border-top:1px solid rgba(217,169,74,.35);padding-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
+  font-size:.85rem;color:#a9bcd2}
+.tonight .then-inner b{color:var(--gold);letter-spacing:.18em;font-size:.7rem;padding-top:.2rem}
+.tonight .then-inner span b{color:#fff;letter-spacing:0;font-size:.85rem}
+@media(min-width:760px){.tonight .hero1{grid-template-columns:1.05fr .95fr;align-items:center;padding-top:3.2rem}
+  .tonight .art img{max-height:520px}}
+
+/* ============ CONCEPT 2 · THE COVER ============ */
+.cover{background:var(--paper)}
+.cover .body{max-width:64rem;margin:0 auto;padding:0 1.25rem 3rem}
+.cover .dateline{font-size:.7rem;letter-spacing:.3em;color:var(--accent);font-weight:600;margin:1.6rem 0 1rem}
+.cover h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;color:var(--ink);
+  font-size:clamp(2.8rem,12vw,5.4rem);line-height:1.0;margin-bottom:2rem}
+.cover h3 em{font-style:italic;font-weight:500}
+.collage{display:grid;gap:1rem;margin-bottom:2rem}
+.collage figure img{width:100%;height:100%;object-fit:cover;box-shadow:0 1.2rem 3rem rgba(16,61,96,.18)}
+.collage figcaption{font-size:.8rem;color:var(--muted);font-style:italic;margin-top:.5rem}
+.collage .big img{aspect-ratio:3/2}
+.collage .stack{display:grid;gap:1rem}
+.collage .stack figure img{aspect-ratio:3/2}
+@media(min-width:760px){.collage{grid-template-columns:1.35fr 1fr}
+  .collage .big{transform:rotate(-1deg)}.collage .stack{padding-top:2.2rem}
+  .collage .stack figure:first-child{transform:rotate(1.4deg)}
+  .collage .stack figure:last-child{transform:rotate(-1.2deg)}}
+.cover .standfirst{font-size:1.06rem;line-height:1.7;color:#4a443b;max-width:37rem;margin-bottom:2rem}
+.cover .cta{display:inline-block;border:1px solid var(--accent);color:var(--accent);
+  letter-spacing:.15em;font-size:.82rem;padding:.9rem 1.9rem;font-weight:600;text-transform:uppercase}
+
+/* ============ CONCEPT 3 · KEY DATES ============ */
+.keydates{background:var(--inkbg);color:var(--cream)}
+.keydates .masthead .mk{color:var(--gold)}
+.keydates .masthead .wordmark{color:var(--cream)}
+.keydates .masthead .dbl{border-color:var(--gold)}
+.keydates .masthead nav a{color:rgba(246,241,230,.85)}
+.keydates .body{max-width:64rem;margin:0 auto;padding:0 1.25rem 3rem;text-align:center}
+.keydates h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;color:#fff;
+  font-size:clamp(2.6rem,11vw,4.8rem);line-height:1.02;margin:1.4rem 0 .8rem}
+.keydates .sub{font-style:italic;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.25rem;color:#d8cdb4;margin-bottom:2.6rem}
+.kd-strip{display:grid;gap:0;text-align:left;border-top:2px solid var(--gold)}
+.kd{display:grid;gap:.3rem;padding:1.4rem .2rem;border-bottom:1px solid rgba(217,169,74,.4)}
+.kd .when{font-size:.78rem;letter-spacing:.24em;color:var(--gold);font-weight:700}
+.kd .what{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;font-weight:600;color:#fff;line-height:1.15}
+.kd .why{color:#b9ac93;font-size:.95rem;max-width:32rem}
+@media(min-width:760px){.kd-strip{grid-template-columns:1fr 1fr 1fr}
+  .kd{padding:1.6rem 1.4rem;border-bottom:2px solid var(--gold);border-right:1px solid rgba(217,169,74,.4)}
+  .kd:last-child{border-right:none}}
+.kd-mini{display:flex;gap:1rem;align-items:center;justify-content:center;margin:2.4rem auto 0;max-width:34rem;
+  border:1px solid rgba(217,169,74,.4);padding:.7rem;text-align:left}
+.kd-mini img{width:110px;height:70px;object-fit:cover;flex:none}
+.kd-mini .t1{font-size:.68rem;letter-spacing:.2em;color:var(--gold);font-weight:700}
+.kd-mini .t2{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.15rem;color:#fff;font-weight:600;line-height:1.2}
+.keydates .cta{display:inline-block;margin-top:2.4rem;color:var(--gold);letter-spacing:.2em;
+  font-size:.82rem;font-weight:700;text-transform:uppercase;border-bottom:2px solid var(--gold);padding-bottom:4px}
+
+/* ===== shared body ===== */
+.shared{max-width:64rem;margin:0 auto;padding:3rem 1.25rem 1rem}
+.shared h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2rem;margin-bottom:.4rem}
+.shared .lede{color:var(--muted);max-width:38rem;margin-bottom:1.6rem}
+.week{display:grid;gap:.7rem}
+.week a{display:grid;grid-template-columns:84px 1fr auto;gap:1rem;align-items:center;background:#fff;
+  border:1px solid var(--hair);padding:.6rem .8rem .6rem .6rem;color:inherit}
+.week img{width:84px;height:62px;object-fit:cover}
+.week .when{font-size:.66rem;letter-spacing:.18em;color:var(--gold-deep);font-weight:700}
+.week .what{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;font-weight:600;line-height:1.2}
+.week .where{font-size:.82rem;color:var(--muted)}
+.week .arrow{color:var(--gold-deep);font-size:1.3rem;padding-right:.3rem}
+.method{border-left:2px solid var(--accent);padding:.4rem 0 .4rem 1rem;color:var(--muted);font-style:italic;margin:2.2rem 0 0}
+
+/* ===== footer ===== */
+footer.colophon{margin-top:3.5rem;padding:2rem 1.25rem 3rem;border-top:1px solid var(--hair);
+  font-size:.8rem;color:var(--muted);text-align:center}
+footer.colophon .foot-links{margin:.8rem 0}
+footer.colophon .foot-links a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px;margin:0 .35rem}
+footer.colophon .promise{font-style:italic;max-width:34rem;margin:0 auto 1rem}
+.pickbar{background:#111;color:#e9e4d8;text-align:center;padding:1.6rem 1.25rem 2rem}
+.pickbar .pk{font-size:.68rem;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:.4rem}
+.pickbar p{max-width:38rem;margin:0 auto;font-size:.95rem}
+.pickbar b{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="framebar">
+  <p class="fk">PROTOTYPE · HOMEPAGE HERO CONCEPTS</p>
+  <p>Three banners for <b>The Golden Hour</b> homepage. Below each one sits the same simple page — judge the banner, not the site. All photography is the events' own promo art. <b>Reply 1, 2, or 3</b> — mixes welcome.</p>
+</div>
+
+<!-- ================= CONCEPT 1 ================= -->
+<div class="concept-label">
+  <span class="num">1</span>
+  <div>
+    <h2>CONCEPT 1 — TONIGHT</h2>
+    <p>Dark and alive. The banner <em>is</em> the next event — it rotates with the schedule, so the homepage always leads with what's on next.</p>
+  </div>
+</div>
+
+<div class="stage">
+<section class="tonight">
+  <div class="mast-mini">
+    <span class="wm">The Golden Hour</span>
+    <nav aria-label="Sections">
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">Latest</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">Events</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">Calendar</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/map/">Map</a>
+    </nav>
+  </div>
+  <div class="hero1">
+    <div class="art">
+      <img src="img/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
+    </div>
+    <div>
+      <p class="kick">● NEXT UP · WEDNESDAY NIGHT IN ASPEN</p>
+      <h3>Craig Robinson</h3>
+      <p class="meta"><b>Wednesday, Oct 14 · 7:30 PM</b> · Wheeler Opera House</p>
+      <p class="line">Darryl from <i>The Office</i> brings stand-up, storytelling, and his keyboard to the Wheeler stage — deadpan charm, one night only.</p>
+      <a class="cta" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">See what's on</a>
+    </div>
+  </div>
+  <div class="then">
+    <div class="then-inner">
+      <b>THEN</b>
+      <span><b>Thu, Oct 15</b> — In The Company of Wolves</span>
+      <span><b>Fri–Sat, Oct 16–17</b> — Shining Mountains Film Festival</span>
+      <span><b>Tue, Oct 20</b> — Kiliii Yuyan</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= CONCEPT 2 ================= -->
+<div class="concept-label">
+  <span class="num">2</span>
+  <div>
+    <h2>CONCEPT 2 — THE COVER</h2>
+    <p>The magazine treatment. The week as a cover story — masthead, big serif headline, and this week's real promo art in collage.</p>
+  </div>
+</div>
+
+<div class="stage">
+<section class="cover">
+  <header class="masthead">
+    <p class="mk">FROM ASPEN AND BEYOND</p>
+    <p class="wordmark">The Golden Hour</p>
+    <div class="dbl"></div>
+    <nav aria-label="Sections">
+      <a class="on" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">Latest</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/upcoming/">Upcoming</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">Events</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">Calendar</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/map/">Map</a>
+    </nav>
+  </header>
+  <div class="body">
+    <p class="dateline">THE WEEK OF OCTOBER 12, 2026 · ASPEN, COLORADO</p>
+    <h3>This week in <em>Aspen.</em></h3>
+    <div class="collage">
+      <figure class="big">
+        <img src="img/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
+        <figcaption>Craig Robinson — Wednesday at the Wheeler</figcaption>
+      </figure>
+      <div class="stack">
+        <figure>
+          <img src="img/kiliii-yuyan.jpg" alt="Kiliii Yuyan — official promo photo">
+          <figcaption>Kiliii Yuyan — Tuesday, Oct 20</figcaption>
+        </figure>
+        <figure>
+          <img src="img/vienna-boys-choir.jpg" alt="Vienna Boys Choir — official promo photo">
+          <figcaption>Vienna Boys Choir — Saturday, Oct 24</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="standfirst">A film that premiered at Cannes and comes home to the Wheeler, a festival of Native cinema, a choir six centuries in the making — and Darryl from <i>The Office</i> at a piano. Every pick verified before publication.</p>
+    <a class="cta" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/editions/">Read the edition</a>
+  </div>
+</section>
+</div>
+
+<!-- ================= CONCEPT 3 ================= -->
+<div class="concept-label">
+  <span class="num">3</span>
+  <div>
+    <h2>CONCEPT 3 — KEY DATES</h2>
+    <p>Calm and premium. No big photo — the information is the hero. The season's defining dates, set in gold on ink.</p>
+  </div>
+</div>
+
+<div class="stage">
+<section class="keydates">
+  <header class="masthead">
+    <p class="mk">FROM ASPEN AND BEYOND</p>
+    <p class="wordmark">The Golden Hour</p>
+    <div class="dbl"></div>
+    <nav aria-label="Sections">
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">Latest</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/upcoming/">Upcoming</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">Events</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">Calendar</a>
+      <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/map/">Map</a>
+    </nav>
+  </header>
+  <div class="body">
+    <h3>Key dates.</h3>
+    <p class="sub">The season at a glance — the dates worth planning a trip around.</p>
+    <div class="kd-strip">
+      <div class="kd">
+        <p class="when">THU · NOV 26</p>
+        <p class="what">Ski season opens</p>
+        <p class="why">Aspen Mountain and Snowmass start the lifts on Thanksgiving Day.</p>
+      </div>
+      <div class="kd">
+        <p class="when">DEC 11–14</p>
+        <p class="what">The 80th anniversary weekend</p>
+        <p class="why">Aspen Snowmass marks eighty years since skiing began on Aspen Mountain — throwback pricing, a long weekend of programming.</p>
+      </div>
+      <div class="kd">
+        <p class="when">APR 4 – NOV 19, 2027</p>
+        <p class="what">The airport closes</p>
+        <p class="why">ASE shuts to all flights while the runway is rebuilt. The town stays open — plan the drive.</p>
+      </div>
+    </div>
+    <div class="kd-mini">
+      <img src="img/manual-cinema-4th-witch.jpg" alt="Manual Cinema's The 4th Witch — official promo art">
+      <div>
+        <p class="t1">ALSO AT THE WHEELER</p>
+        <p class="t2">Manual Cinema's The 4th Witch — Fri, Oct 23 · 7:30 PM</p>
+      </div>
+    </div>
+    <a class="cta" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/key-dates/">See all key dates →</a>
+  </div>
+</section>
+</div>
+
+<!-- ================= SHARED BODY ================= -->
+<main class="shared">
+  <h2>This week at a glance</h2>
+  <p class="lede">The same five verified events sit under whichever banner you pick — every one with its own promo art, checked against the venue before publication.</p>
+  <div class="week">
+    <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/craig-robinson/">
+      <img src="img/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
+      <div><p class="when">WED · OCT 14 · 7:30 PM</p><p class="what">Craig Robinson</p><p class="where">Wheeler Opera House — comedy + live music</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://wheeleroperahouse.com/event/in-the-company-of-wolves/">
+      <img src="img/in-the-company-of-wolves.jpg" alt="In The Company of Wolves — official film art">
+      <div><p class="when">THU · OCT 15 · 7:00 PM</p><p class="what">In The Company of Wolves</p><p class="where">Wheeler Opera House — film + live Q&amp;A</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://wheeleroperahouse.com/calendar/">
+      <img src="img/shining-mountains.jpg" alt="Shining Mountains Film Festival — official festival art">
+      <div><p class="when">FRI–SAT · OCT 16–17</p><p class="what">Shining Mountains Film Festival</p><p class="where">Wheeler Opera House — 8th annual, Aspen Indigenous Foundation</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">
+      <img src="img/kiliii-yuyan.jpg" alt="Kiliii Yuyan — official promo photo">
+      <div><p class="when">TUE · OCT 20 · 7:00 PM</p><p class="what">Kiliii Yuyan — Indigenous Wisdom for a Modern World</p><p class="where">Wheeler Opera House — Changemaker Speaker Series</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/vienna-boys-choir/">
+      <img src="img/vienna-boys-choir.jpg" alt="Vienna Boys Choir — official promo photo">
+      <div><p class="when">SAT · OCT 24 · 7:00 PM</p><p class="what">Vienna Boys Choir</p><p class="where">Wheeler Opera House</p></div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <p class="method">Every event is checked against the venue's own page or a trusted local source before it reaches you. Aggregator listings alone never make the cut.</p>
+</main>
+
+<footer class="colophon">
+  <p class="promise">Our promise: every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
+  <p class="foot-links"><a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">Latest</a> · <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/upcoming/">Upcoming</a> · <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">Events</a> · <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/calendar/">Calendar</a> · <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/map/">Map</a> · <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/key-dates/">Key Dates</a> · <a href="https://ron-delhaye-studios.github.io/this-week-in-aspen/sources/">How we verify</a></p>
+  <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+</footer>
+
+<div class="pickbar">
+  <p class="pk">YOUR CALL</p>
+  <p>Reply <b>1</b>, <b>2</b>, or <b>3</b> — or name a mix, like “1, with 3's dates strip underneath.” Nothing touches the real homepage until you pick.</p>
+</div>
+
+</body>
+</html>
